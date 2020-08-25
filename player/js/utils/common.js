@@ -109,10 +109,11 @@ function BMAnimationConfigErrorEvent(type, nativeError) {
     this.currentTime = currentTime;
 }
 
-var createElementID = (function(){
+var createElementID = (function(prefix){
     var _count = 0;
+    var _prefix = prefix || '__lottie_element_';
     return function createID() {
-        return '__lottie_element_' + ++_count
+        return _prefix + ++_count
     }
 }())
 
