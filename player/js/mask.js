@@ -5,6 +5,7 @@ function MaskElement(data,element,globalData) {
     this.storedData = [];
     this.masksProperties = this.data.masksProperties || [];
     this.maskElement = null;
+    this.maskPrefix = this.globalData.renderConfig.idPrefix;
     var defs = this.globalData.defs;
     var i, len = this.masksProperties ? this.masksProperties.length : 0;
     this.viewData = createSizedArray(len);
@@ -15,7 +16,7 @@ function MaskElement(data,element,globalData) {
     var count = 0;
     var currentMasks = [];
     var j, jLen;
-    var layerId = createElementID();
+    var layerId = createElementID(this.maskPrefix);
     var rect, expansor, feMorph,x;
     var maskType = 'clipPath', maskRef = 'clip-path';
     for (i = 0; i < len; i++) {
@@ -56,7 +57,7 @@ function MaskElement(data,element,globalData) {
             maskType = 'mask';
             maskRef = 'mask';
             x = PropertyFactory.getProp(this.element,properties[i].x,0,null,this.element);
-            filterID = createElementID();
+            filterID = createElementID(idPrefix);
             expansor = createNS('filter');
             expansor.setAttribute('id',filterID);
             feMorph = createNS('feMorphology');
