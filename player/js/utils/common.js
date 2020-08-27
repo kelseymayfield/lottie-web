@@ -109,12 +109,13 @@ function BMAnimationConfigErrorEvent(type, nativeError) {
     this.currentTime = currentTime;
 }
 
-var createElementID = (function(){
+function createElementID(prefix) {
+    var _prefix = prefix || '__lottie_element_';
     var _count = 0;
     return function createID() {
-        return '__lottie_element_' + ++_count
+        return _prefix + ++_count
     }
-}())
+}
 
 function HSVtoRGB(h, s, v) {
     var r, g, b, i, f, p, q, t;
