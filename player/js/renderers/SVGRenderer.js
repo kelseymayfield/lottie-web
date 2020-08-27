@@ -37,6 +37,7 @@ function SVGRenderer(animationItem, config){
         viewBoxSize: (config && config.viewBoxSize) || false,
         className: (config && config.className) || '',
         id: (config && config.id) || '',
+        idPrefix: (config && config.idPrefix) || '',
         focusable: config && config.focusable,
         filterSize: {
             width: config && config.filterSize && config.filterSize.width || '100%',
